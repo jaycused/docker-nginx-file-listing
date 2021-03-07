@@ -12,6 +12,14 @@ server {
     }
     
     location / {
+       fancyindex on;
+	   fancyindex_exact_size off;
+	   fancyindex_footer /theme/Nginxy-Theme/footer.html;
+	   fancyindex_header /theme/Nginxy-Theme/header.html;
+	   fancyindex_css_href /theme/Nginxy-Theme/style.css;
+	   fancyindex_time_format "%B %e, %Y";
+	
+	   try_files $uri.html $uri $uri/ =404;
        alias /mnt/data/;
        expires -1;
        autoindex on;
